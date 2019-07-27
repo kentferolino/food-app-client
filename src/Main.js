@@ -6,9 +6,8 @@ import PropTypes from 'prop-types';
 import Home from './pages/Home';
 import Front from './pages/Front';
 import AppNavbar from './components/navs/AppNavbar';
-import ChangePW from './pages/ChangePW';
-import UserProfile from './pages/UserProfile';
 import PrivateRoute from './utils/PrivateRoute';
+import { mainRoutes as routes } from './utils/route'
 
 const styles = theme => ({
   root: {
@@ -36,9 +35,16 @@ const Main = ({ auth, classes }) => {
           <main className={classes.content}>
             <div className={classes.toolbar} />
             <Switch>
-              <PrivateRoute path="/home" component={Home} auth={auth} />
-              <PrivateRoute path="/changepw" component={ChangePW} auth={auth} />
-              <PrivateRoute path="/updateProfile" component={UserProfile} auth={auth} />
+              {
+                routes.map((route) => (
+                  <PrivateRoute
+                    path={route.path}
+                    component={route.component}
+                    auth={auth}
+                    key={route.path}
+                  />
+                ))
+              }
               <Route
                 exact
                 path="/"

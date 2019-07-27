@@ -12,30 +12,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import { Build, Home } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
-
-const routes = [
-  {
-    path: '/',
-    main: () => <h2>Home</h2>,
-    label: 'Home',
-    icon: () => <Home />
-  },
-  {
-    path: '/soup',
-    main: () => <h2>Soup</h2>,
-    label: 'Soup',
-    icon: () => <Build />
-  },
-  {
-    path: '/shoelaces',
-    main: () => <h2>Shoelaces</h2>,
-    label: 'Shoelaces',
-    icon: () => <Build />
-  },
-];
+import { navRoutes as routes } from '../../utils/route';
 
 const drawerWidth = 240;
 
