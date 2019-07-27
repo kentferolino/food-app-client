@@ -24,9 +24,9 @@ const routes = [
     icon: () => <Home />
   },
   {
-    path: '/bubblegum',
-    main: () => <h2>Bubblegum</h2>,
-    label: 'Bubblegum',
+    path: '/soup',
+    main: () => <h2>Soup</h2>,
+    label: 'Soup',
     icon: () => <Build />
   },
   {

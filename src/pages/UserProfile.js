@@ -6,13 +6,13 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import { connect } from 'react-redux';
-import moment from 'moment';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import { updateUserInfo } from '../actions/authActions';
+import { formatDate } from '../utils/index';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,10 +25,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }))
-
-const formatDate = value => {
-  return moment(new Date(value)).format('YYYY-MM-DD');
-}
 
 const UserProfile = ({ updateUserInfoAction, auth }) => {
 
