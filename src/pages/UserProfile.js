@@ -11,6 +11,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import PropTypes from 'prop-types';
 import { updateUserInfo } from '../actions/authActions';
 import { formatDate } from '../utils/index';
 
@@ -119,10 +120,28 @@ const UserProfile = ({ updateUserInfoAction, auth }) => {
   );
 }
 
+UserProfile.propTypes = {
+  updateUserInfoAction: PropTypes.func.isRequired,
+  auth: PropTypes.shape({
+    token: PropTypes.string,
+    isAuthenticated: PropTypes.bool,
+    isLoading: PropTypes.bool,
+    user: PropTypes.instanceOf(Object),
+  }),
+};
+
+UserProfile.defaultProps = {
+  auth: {
+    token: null,
+    isAuthenticated: null,
+    isLoading: null,
+    user: null,
+  },
+};
+
 const mapStateToProps = state => ({
   auth: state.auth,
 });
-
 
 export default connect(
   mapStateToProps,
