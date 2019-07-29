@@ -1,7 +1,5 @@
 import {
   GET_SUBCATEGORIES,
-  ADD_SUBCATEGORY,
-  DELETE_SUBCATEGORY,
   SUBCATEGORIES_LOADING
 } from './types';
 
@@ -16,22 +14,20 @@ const data = {
     { value: 'meat_and_cheese', label: 'Meat and Cheese' },
     { value: 'hot', label: 'Hot' },
   ],
-  side_dish: [
+  sidedish: [
     { value: 'bread', label: 'Bread' },
     { value: 'pasta', label: 'Pasta' },
     { value: 'fruits_and_vegetables', label: 'Fruits and Vegetables' },
     { value: 'colds', label: 'Colds' },
   ],
-  main_course: [
+  maincourse: [
     { value: 'beef', label: 'Beef' },
     { value: 'chicken', label: 'Chicken' },
     { value: 'pork', label: 'Pork' },
     { value: 'vegetarian', label: 'Vegetarian' },
     { value: 'fish', label: 'Fish' },
-    { value: 'pizza', label: 'Pizza' },
   ],
   dessert: [
-    { value: 'biscuits', label: 'Biscuits' },
     { value: 'cakes', label: 'Cakes' },
     { value: 'chocolates_and_candies', label: 'Chocolates and Candies' },
     { value: 'deep_fried', label: 'Deep Fried' },

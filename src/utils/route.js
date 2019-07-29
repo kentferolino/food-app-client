@@ -34,13 +34,13 @@ export const navRoutes = [
     icon: () => <FontAwesomeIcon icon={faCheese} size="2x" />
   },
   {
-    path: '/main/side_dish',
+    path: '/main/sidedish',
     main: () => <h2>Side dish</h2>,
     label: 'Side dish',
     icon: () => <FontAwesomeIcon icon={faCarrot} size="2x" />
   },
   {
-    path: '/main/main_course',
+    path: '/main/maincourse',
     main: () => <h2>Main Course</h2>,
     label: 'Main course',
     icon: () => <FontAwesomeIcon icon={faFish} size="2x" />

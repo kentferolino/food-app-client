@@ -10,12 +10,27 @@ export const setFoodItemsLoading = () => {
   };
 };
 
-export const getFoodItems = ({ course, subcategory }) => dispatch => {
-  debugger;
-  console.log(JSON.stringify(foodItems['appetizer']))
+export const getFoodItems = ({ course, subcategories }) => dispatch => {
+  const courseFoodItemsArray = foodItems[course];
+  const subcatItemsArray = subcategories ? subcategories.map(subcat => {
+    const subcatItem = courseFoodItemsArray[subcat.value];
+    return subcatItem ? subcatItem.data.map(x => {
+      return {
+        ...x,
+        imageUrl: subcatItem.imageUrl,
+        subcategory: {
+          value: subcat.value, label: subcat.label
+        },
+        subcategoryValue: subcat.value,
+      }
+    }) : [];
+  }) : [];
+
+  const mergedArrays = [].concat(...subcatItemsArray);
+
   dispatch(setFoodItemsLoading());
   dispatch({
     type: GET_FOODITEMS,
-    payload: foodItems[course] || [],
+    payload: mergedArrays || [],
   });
 };

@@ -12,7 +12,6 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case GET_FOODITEMS:
-      debugger;
       return { ...state, foodItems: action.payload, loading: false };
     case FOODITEMS_LOADING:
       return { ...state, loading: true };

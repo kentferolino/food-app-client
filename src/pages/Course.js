@@ -15,6 +15,9 @@ const useStyles = makeStyles(theme => ({
   heading: {
     fontSize: theme.typography.pxToRem(15),
   },
+  foodItems: {
+    marginTop: 20,
+  }
 }));
 
 const Course = ({ getSubcategoriesAction, subcategories, match, foodItems, getFoodItemsAction }) => {
@@ -30,9 +33,9 @@ const Course = ({ getSubcategoriesAction, subcategories, match, foodItems, getFo
   useEffect(() => {
     if (course && course !== '') {
       getSubcategoriesAction(course);
-      getFoodItemsAction({ course })
+      getFoodItemsAction({ course, subcategories: filters.filter(x => x.selected) })
     }
-  }, [course]);
+  }, [course, filters]);
 
   useEffect(() => {
     const initialFilters = subcategories.map((subcategory) => {
@@ -55,12 +58,14 @@ const Course = ({ getSubcategoriesAction, subcategories, match, foodItems, getFo
   const classes = useStyles();
 
   return (
-    <div>
-      <div className={classes.root}>
+    <div className={classes.root}>
+      <div>
         <Typography className={classes.heading}>{course.toUpperCase()}</Typography>
       </div>
       <FilterHeader options={filters} setFilters={handleSetFilters} />
-      <FoodItems items={foodItems} />
+      <div className={classes.foodItems}>
+        <FoodItems items={foodItems} />
+      </div>
     </div>
   )
 };
