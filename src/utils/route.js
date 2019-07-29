@@ -11,6 +11,7 @@ import {
 import Home from '../pages/Home';
 import ChangePW from '../pages/ChangePW';
 import UserProfile from '../pages/UserProfile';
+import Course from '../pages/Course';
 
 
 export const navRoutes = [
@@ -21,31 +22,31 @@ export const navRoutes = [
     icon: () => <FontAwesomeIcon icon={faHome} size="2x" />
   },
   {
-    path: '/soup',
+    path: '/main/soup',
     main: () => <h2>Soup</h2>,
     label: 'Soup',
     icon: () => <FontAwesomeIcon icon={faMugHot} size="2x" />
   },
   {
-    path: '/appetizer',
+    path: '/main/appetizer',
     main: () => <h2>Appetizer</h2>,
     label: 'Appetizer',
     icon: () => <FontAwesomeIcon icon={faCheese} size="2x" />
   },
   {
-    path: '/sidedish',
+    path: '/main/side_dish',
     main: () => <h2>Side dish</h2>,
     label: 'Side dish',
     icon: () => <FontAwesomeIcon icon={faCarrot} size="2x" />
   },
   {
-    path: '/maincourse',
+    path: '/main/main_course',
     main: () => <h2>Main Course</h2>,
     label: 'Main course',
     icon: () => <FontAwesomeIcon icon={faFish} size="2x" />
   },
   {
-    path: '/dessert',
+    path: '/main/dessert',
     main: () => <h2>Dessert</h2>,
     label: 'Dessert',
     icon: () => <FontAwesomeIcon icon={faIceCream} size="2x" />
@@ -53,16 +54,8 @@ export const navRoutes = [
 ];
 
 export const mainRoutes = [
-  {
-    path: '/home',
-    component: Home
-  },
-  {
-    path: '/changepw',
-    component: ChangePW
-  },
-  {
-    path: '/updateProfile',
-    component: UserProfile
-  },
+  { path: '/home', component: Home },
+  { path: '/changepw', component: ChangePW },
+  { path: '/updateProfile', component: UserProfile },
+  { path: '/main/:course', component: Course },
 ];

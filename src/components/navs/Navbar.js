@@ -50,7 +50,7 @@ const Navbar = ({ classes, open, doDrawerOpen, isAuthenticated = false, user = n
         <Typography variant="h6" color="inherit" className={classes.grow}>
           <>
             <RestaurantIcon />
-            Food!!!
+            Welcome to Food Finder!
           </>
         </Typography>
         {isAuthenticated ? authLinks : guestLinks}
