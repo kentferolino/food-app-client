@@ -77,7 +77,7 @@ const FilterHeader = ({ options, setFilters }) => {
                     className={classes.chip}
                     label={filter.label}
                     onDelete={() => setFilters(filter, 'remove')}
-                    key={filter.value}
+                    key={filter._id}
                   />
                 ))
             }
@@ -101,7 +101,7 @@ const FilterHeader = ({ options, setFilters }) => {
                     />
                   }
                   label={option.label}
-                  key={option.value}
+                  key={option._id}
                 />
               ))
             }

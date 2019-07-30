@@ -17,8 +17,8 @@ const FoodItems = ({ items }) => {
       <Grid container spacing={2}>
         {
           items.map(item => (
-            <Grid item md={4} sm={6} key={item.path}>
-              <ItemCard imageUrl={item.imageUrl} title={item.title} />
+            <Grid item md={4} sm={6} key={item._id}>
+              <ItemCard imageUrl={item.imageUrl} title={item.name} />
             </Grid>
           ))
         }

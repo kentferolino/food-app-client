@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { getSubcategories } from '../actions/subcategoryActions';
+import { getSubcategoriesByCourseName } from '../actions/subcategoryActions';
 import { getFoodItems } from '../actions/foodItemActions';
 import FilterHeader from '../components/FilterHeader';
 import FoodItems from '../components/FoodItems';
@@ -33,9 +33,8 @@ const Course = ({ getSubcategoriesAction, subcategories, match, foodItems, getFo
   useEffect(() => {
     if (course && course !== '') {
       getSubcategoriesAction(course);
-      getFoodItemsAction({ course, subcategories: filters.filter(x => x.selected) })
     }
-  }, [course, filters]);
+  }, [course]);
 
   useEffect(() => {
     const initialFilters = subcategories.map((subcategory) => {
@@ -44,10 +43,14 @@ const Course = ({ getSubcategoriesAction, subcategories, match, foodItems, getFo
     setFilters(initialFilters);
   }, [subcategories])
 
+  useEffect(() => {
+    getFoodItemsAction({ subcategories: filters.filter(x => x.selected) })
+  }, [filters])
+
   const handleSetFilters = (filter, operation) => {
     let newFilters = [];
     newFilters = filters.map(x => {
-      if (x.value === filter.value) {
+      if (x._id === filter._id) {
         return { ...x, selected: operation === 'add' }
       }
       return x;
@@ -77,5 +80,8 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getSubcategoriesAction: getSubcategories, getFoodItemsAction: getFoodItems },
+  {
+    getSubcategoriesAction: getSubcategoriesByCourseName,
+    getFoodItemsAction: getFoodItems
+  },
 )(Course);
